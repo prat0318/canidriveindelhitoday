@@ -42,7 +42,7 @@
                 <br><br> <br><br>
                 <a href="#" class="btn-big-red" onclick="tellMe()"> TELL ME! </a>
                 <br><br>
-                <span class="heading" style="font-size: 15px; visibility:hidden" id="nope">Listen, that doesn't look like a license number, so NOPE. Maybe <a href="#" style="color: #ccffff" onclick="init()">try this</a>.</span>
+                <span class="heading" style="font-size: 15px; visibility:hidden" id="nope"></span>
                 <br>
                 <div style="padding-top: 30px" id="add-pic"></div>
                 <a class='by' href='http://www.prat0318.me'>Prateek Agarwal @prat0318 [Note: This is not official and should not always be trusted]. (Template taken from yairEO/fancyInput)</a>
@@ -58,18 +58,21 @@
                 }
 
                 function tellMe() {
+                    document.getElementById('nope').style.visibility = 'visible';
                     var plate = document.getElementById('number').value;
                     var last = plate.slice(-1);
                     var src = 'https://media.giphy.com/media/149t2dI5M5nzvq/giphy.gif';
                     if (matchRegex(plate)) {
                         var currDate = (new Date()).getDate();
-                        document.getElementById('nope').style.visibility = 'hidden';
+                        //document.getElementById('nope').style.visibility = 'hidden';
                         if((currDate - last)%2 == 0) {
                             var src = 'http://38.media.tumblr.com/66c025895f7121c26673dedb03b85398/tumblr_mi050pcC5g1qdvraco1_500.gif';
+                        document.getElementById('nope').innerHTML = 'Ok, looks like you can. Want to <a href="#" style="color: #ccffff" onclick="init()">try more?</a>';
                         } else {
+                        document.getElementById('nope').innerHTML = 'Nope, today is not your day :( Want to <a href="#" style="color: #ccffff" onclick="init()">try some random?</a>';
                         }
                     } else {
-                        document.getElementById('nope').style.visibility = 'visible';
+                        document.getElementById('nope').innerHTML = 'Listen, that doesn\'t look like a license number, so NOPE. Maybe <a href="#" style="color: #ccffff" onclick="init()">try this</a>.';
                     }
                     document.getElementById('add-pic').innerHTML = '<img src="' + src + '"/>';
                 }
@@ -95,6 +98,7 @@
 
 		// Everything below is only for the DEMO
 		function init(str){
+                    $('.fancyInput').children()[1].innerHTML = '<b class="caret" style="height: 65px;">​</b>';
 			var input = $('section input').val('')[0],
 				// s = 'ENTER YOUR COOL LICENSE NO.. ✌'.split('').reverse(),
                                 num = 'DL-2C AG ' + (Math.floor(Math.random()*9000) + 1000);
