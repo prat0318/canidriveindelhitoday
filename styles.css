@@ -1,6 +1,7 @@
+
 html{ height:100%; }
 body{ height:100%; text-align:center; }
-#wrap{ min-width:600px; height:100%; position:relative; background:-webkit-radial-gradient(#205983, #0A2742); background:radial-gradient(#205983, #0A2742); overflow:hidden; }
+#wrap{ height:100%; position:relative; background:-webkit-radial-gradient(#205983, #0A2742); background:radial-gradient(#205983, #0A2742); overflow:hidden; }
 
 @font-face {
   font-family: 'Fjalla One';
@@ -43,5 +44,5 @@ header{ position:absolute; z-index:999; top:0; left:0; width:100%; padding:10px 
 	#content section{ width:50%; height:100%; float:left; }
 	#content section::before{ content:''; display:inline-block; height:100%; vertical-align:middle; }
 
-.fancyInput{ max-width:80%; min-width:50%; font-size:60px; color:#FFF; line-height:1.3; overflow:hidden; text-align:left; box-shadow:0 1px 0 rgba(255,255,255,.15), 0 2px 4px rgba(0,0,0,.2) inset, 0 0 12px rgba(255,255,255,.1); padding:8px 20px; background:rgba(0,0,0,.1); border-radius:10px; }
+.fancyInput{ max-width:70%; min-width:50%; font-size:50px; color:#FFF; line-height:1.3; position:relative; top: -25%; overflow:hidden; text-align:left; box-shadow:0 1px 0 rgba(255,255,255,.15), 0 2px 4px rgba(0,0,0,.2) inset, 0 0 12px rgba(255,255,255,.1); padding:8px 20px; background:rgba(0,0,0,.1); border-radius:10px; }
 .fancyInput.textarea{ line-height:normal; font-size:40px; max-width:50%; min-height:160px; max-height:40%; }

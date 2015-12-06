@@ -14,7 +14,7 @@
 	<meta charset="utf-8">
 	<title>Can I drive in Delhi, today? Solves odd/even problems.</title>
 	<meta name="description" content="Calculates whether today is odd or even day for your car.">
-	<meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="fancyInput.css">
@@ -38,9 +38,11 @@
 				</div>
 			</section>
 		</div>
+                <br><br> <br><br>
+                <br><br> <br><br>
                 <a href="#" class="btn-big-red" onclick="tellMe()"> TELL ME! </a>
                 <br><br>
-                <span class="heading" style="font-size: 15px; visibility:hidden" id="nope">Listen, that doesn't look like a license number, so NOPE. Maybe <a href="https://www.google.com/search?q=india+car+number+plate&tbm=isch" style="color: #ccffff" target="_blank">try these</a>.</span>
+                <span class="heading" style="font-size: 15px; visibility:hidden" id="nope">Listen, that doesn't look like a license number, so NOPE. Maybe <a href="#" style="color: #ccffff" onclick="init()">try this</a>.</span>
                 <br>
                 <div style="padding-top: 30px" id="add-pic"></div>
                 <a class='by' href='http://www.prat0318.me'>Prateek Agarwal @prat0318 [Note: This is not official and should not always be trusted]. (Template taken from yairEO/fancyInput)</a>
@@ -94,7 +96,9 @@
 		// Everything below is only for the DEMO
 		function init(str){
 			var input = $('section input').val('')[0],
-				s = 'ENTER YOUR COOL LICENSE NO.. ✌'.split('').reverse(),
+				// s = 'ENTER YOUR COOL LICENSE NO.. ✌'.split('').reverse(),
+                                num = 'DL-2C AG ' + (Math.floor(Math.random()*9000) + 1000);
+				s = num.split('').reverse(),
 				len = s.length-1,
 				e = $.Event('keypress');
 				
@@ -110,47 +114,11 @@
 						
 					}
 					else clearInterval(initInterval);
-			},150);
+			},60);
 		}
 		
-		init();
+	//	init();
 		
-		$('menu').on('click', 'button', toggleEffect);
-		$('menu.radio').on('change', 'input', changeForm).find('input:first').prop('checked',true).trigger('change');
-		
-		// change effects
-		function toggleEffect(num){
-			var className = '';
-				idx = $(this).index() + 1,
-				$fancyInput = $('.fancyInput');
-
-			if( idx > 1 )
-				className = 'effect' + idx;
-
-			$('#content').prop('class', className);
-			$fancyInput.find(':input')[0].focus();
-			
-			$(this).addClass('active').siblings().removeClass('active');
-		}
-		
-		function changeForm(e){
-			// radio buttons stuff
-			var page = this.value,
-				highlight = $(e.delegateTarget).find('> div'),
-				label = $(this.parentNode),
-				marginLeft = parseInt( label.css('margin-left') , 10 ),
-				xPos;
-				
-			highlight.css({'left':label.position().left + marginLeft, 'width':label.width() });
-			
-			// page change stuff
-			xPos = '-' + label.index() * 50;
-			$('#content').css( 'transform', 'translateX(' + xPos + '%)' );
-			
-			setTimeout(function(){
-				$('#content').find('.' + page  + ' :input')[0].focus();
-			}, 100);
-		}
 		
 		// social sharing stuff
 		setTimeout(addSocial,500);
